@@ -1,0 +1,19 @@
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--wood-dark);
+    color:  var(--wood-primary);
+
+}
+.footer-in{
+    padding: 1rem;
+    text-align: center;
+}
+.footer-in p{
+    color: white;
+}
+.footer-in p:hover{
+    color: var(--wood-hover);
+}

@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+  /* Wood theme colors */
+  --wood-primary: #c19a6b;    /* Main wood color for icons and headings */
+  --wood-light: #e0e0e0;      /* Light text color */
+  --wood-dark: #1a1a1a;       /* Dark background */
+  --wood-hover: #d4b08c;      /* Lighter wood color for hovers */
+  --wood-shadow: rgba(193, 154, 107, 0.2);  /* Transparent wood color for effects */
+}
