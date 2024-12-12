@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { GiTreeGrowth, GiRecycle, GiEarthAmerica } from 'react-icons/gi';
 import { FaSeedling, FaTree, FaCertificate } from 'react-icons/fa';
 import { MdForest, MdEco } from 'react-icons/md';
-import { FaLeaf, FaCheckCircle } from 'react-icons/fa';
+import { FaLeaf } from 'react-icons/fa';
 
 const Sustainability = () => {
   const initiatives = [
