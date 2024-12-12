@@ -6,6 +6,10 @@
     background-color: var(--wood-dark);
     padding: 1rem;
     margin: 0;
+    position: fixed;
+    top: 0;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
 }
 .nav-component-in{
     width: 95%;
@@ -50,4 +54,10 @@
 }
 .nav-component-in-two a:hover{
     color: var(--wood-hover);
+}
+.nav-hidden {
+    transform: translateY(-100%);
+}
+.nav-visible {
+    transform: translateY(0);
 }
