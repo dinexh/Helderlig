@@ -50,7 +50,7 @@ const Sustainability = () => {
           viewport={{ once: true }}
         >
           <p>
-            At TimberCraft, sustainability isn't just a buzzword – it's the core of our business. 
+            At TimberCraft, sustainability isn&apos;t just a buzzword – it&apos;s the core of our business. 
             We believe in responsible forestry practices that preserve our natural resources for future generations.
           </p>
         </motion.div>

@@ -1,14 +1,10 @@
 import { 
   GiWoodPile, 
-  GiTreeBranch, 
-  GiWoodBeam,
-  GiWarAxe,
-  GiForestCamp 
+  GiWarAxe 
 } from 'react-icons/gi';
 import { 
   FaWarehouse, 
-  FaShip, 
-  FaIndustry 
+  FaShip 
 } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
