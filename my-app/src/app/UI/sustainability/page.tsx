@@ -3,7 +3,9 @@ import React from 'react';
 import './sustainability.css';
 import { motion } from 'framer-motion';
 import { GiTreeGrowth, GiRecycle, GiEarthAmerica } from 'react-icons/gi';
-import { FaSeedling } from 'react-icons/fa';
+import { FaSeedling, FaTree, FaCertificate } from 'react-icons/fa';
+import { MdForest, MdEco } from 'react-icons/md';
+import { FaLeaf, FaCheckCircle } from 'react-icons/fa';
 
 const Sustainability = () => {
   const initiatives = [
@@ -29,6 +31,29 @@ const Sustainability = () => {
     }
   ];
 
+  const certifications = [
+    {
+      icon: <FaTree className="cert-icon" />,
+      name: 'FSC Certified'
+    },
+    {
+      icon: <MdForest className="cert-icon" />,
+      name: 'PEFC Certified'
+    },
+    {
+      icon: <FaLeaf className="cert-icon" />,
+      name: 'Green Business Certified'
+    },
+    {
+      icon: <MdEco className="cert-icon" />,
+      name: 'ISO 14001'
+    },
+    {
+      icon: <FaCertificate className="cert-icon" />,
+      name: 'Carbon Trust Standard'
+    }
+  ];
+
   return (
     <div className="sustainability">
       <motion.h2
@@ -50,7 +75,7 @@ const Sustainability = () => {
           viewport={{ once: true }}
         >
           <p>
-            At TimberCraft, sustainability isn&apos;t just a buzzword – it&apos;s the core of our business. 
+            At WoodFlow, sustainability isn&apos;t just a buzzword – it&apos;s the core of our business. 
             We believe in responsible forestry practices that preserve our natural resources for future generations.
           </p>
         </motion.div>
@@ -82,7 +107,12 @@ const Sustainability = () => {
           viewport={{ once: true }}
         >
           <div className="certification-logos">
-            {/* Add certification logos here */}
+            {certifications.map((cert, index) => (
+              <div key={index} className="cert-item">
+                {cert.icon}
+                <span className="cert-name">{cert.name}</span>
+              </div>
+            ))}
           </div>
           <p>Proudly certified by leading international sustainability organizations</p>
         </motion.div>

@@ -1,9 +1,9 @@
 export const theme = {
   colors: {
-    primary: '#8B4513',      // Saddle Brown
-    secondary: '#654321',    // Dark Brown
-    accent: '#DEB887',       // Burlywood
-    background: '#FFF8DC',   // Cornsilk
+    primary: '#654321',     // Dark Brown - primary wood color
+    secondary: '#8B4513',   // Saddle Brown - secondary wood tone
+    accent: '#A0522D',      // Sienna - warm accent
+    background: '#FFF8DC',  // Cornsilk - warm background
     text: '#3E2723',        // Dark Brown Text
     wood: {
       light: '#D2B48C',     // Tan
@@ -16,14 +16,14 @@ export const theme = {
       dark: '#6D4C41',      // Brown
     }
   },
+  shadows: {
+    small: '0 2px 4px rgba(101, 67, 33, 0.1)',
+    medium: '0 4px 6px rgba(101, 67, 33, 0.15)',
+    large: '0 10px 15px rgba(101, 67, 33, 0.2)'
+  },
   transitions: {
     default: 'all 0.3s ease',
     slow: 'all 0.5s ease',
     fast: 'all 0.2s ease'
-  },
-  shadows: {
-    small: '0 2px 4px rgba(139, 69, 19, 0.1)',
-    medium: '0 4px 6px rgba(139, 69, 19, 0.15)',
-    large: '0 10px 15px rgba(139, 69, 19, 0.2)'
   }
 }; 

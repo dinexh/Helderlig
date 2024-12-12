@@ -34,11 +34,8 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Add your form submission logic here
-      // For example: await submitForm(formData);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 800));
       
       setSubmitSuccess(true);
       setFormData({ name: '', email: '', phone: '', message: '' });
