@@ -3,8 +3,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--wood-dark);
-    color:  var(--wood-primary);
+    background-color: darkgreen;
+    color: white;
 
 }
 .footer-in{

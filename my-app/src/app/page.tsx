@@ -4,9 +4,13 @@ import './globals.css';
 import Nav from './components/nav/nav';
 import Footer from './components/footer/footer';
 // UI components
-import Hero from './UI/hero/hero';
-import Services from './UI/services/services';
-import About from './UI/about/about'
+import Hero from './UI/hero/page';
+import Services from './UI/services/page';
+import Products from './UI/products/page';
+import Sustainability from './UI/sustainability/page';
+import About from './UI/about/about';
+import Testimonials from './UI/testimonials/page';
+import Contact from './UI/contact/page';
 
 export default function Home() {
   return (
@@ -14,18 +18,30 @@ export default function Home() {
       <div className="home-component-nav">
         <Nav />
       </div>
+      <section id="home">
         <Hero />
-        <Services />
+      </section>
+      <section id="about">
         <About />
-        {/* We'll add other sections here later:
-        - Key Services
-        - About Us
-        - Why Choose Us
-        - Client Testimonials
-        - Contact Section */}
+      </section>
+      <section id="services">
+        <Services />
+      </section>
+      <section id="products">
+        <Products />
+      </section>
+      <section id="sustainability">
+        <Sustainability />
+      </section>
+      <section id="testimonials">
+        <Testimonials />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
       <div className="home-component-footer">
         <Footer />
       </div>
-    </div>
+    </div>  
   );
 }

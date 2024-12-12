@@ -1,63 +1,158 @@
-.nav-component{
-    width: 100%;
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: rgba(249, 246, 240, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-container.scrolled {
+  background: rgba(249, 246, 240, 0.95);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--primary-dark);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+  color: var(--primary);
+}
+
+.logo-icon {
+  font-size: 2rem;
+  color: var(--primary);
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover .logo-icon {
+  transform: rotate(-10deg);
+}
+
+.nav-links-desktop {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-medium);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--primary-dark);
+}
+
+.menu-icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu-button:hover .menu-icon {
+  transform: scale(1.1);
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-cream);
+  padding: 1rem;
+  box-shadow: var(--shadow-md);
+}
+
+.mobile-nav-link {
+  width: 100%;
+  padding: 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-medium);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+  background-color: var(--primary-light);
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .nav-links-desktop {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .mobile-menu {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--wood-dark);
-    padding: 1rem;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
-}
-.nav-component-in{
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.nav-component-in-one{
-    width: fit-content;
-    min-width: 150px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.8rem;
-}
-.nav-component-in-one h1{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--wood-primary);
-}
-.nav-component-in-one .icon-nav {
-    color: var(--wood-primary);
-    font-size: 2.2rem;
-    transition: transform 0.3s ease;
-    display: flex;
-    align-items: center;
-}
-.nav-component-in-one .icon-nav:hover {
-    transform: scale(1.1);
-}
-.nav-component-in-two{
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.nav-component-in-two a{
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--wood-light);
-    text-decoration: none;
-}
-.nav-component-in-two a:hover{
-    color: var(--wood-hover);
-}
-.nav-hidden {
-    transform: translateY(-100%);
-}
-.nav-visible {
-    transform: translateY(0);
+    flex-direction: column;
+  }
+
+  .nav-logo {
+    font-size: var(--text-lg);
+  }
+
+  .logo-icon {
+    font-size: 1.75rem;
+  }
 }

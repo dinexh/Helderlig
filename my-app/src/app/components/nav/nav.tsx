@@ -1,44 +1,87 @@
 'use client'
+import React, { useState, useEffect } from 'react';
 import './nav.css';
-import { GiWoodPile } from "react-icons/gi";
-import { useState, useEffect } from 'react';
+import { GiWoodBeam, GiHamburgerMenu } from "react-icons/gi";
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Nav = () => {
-    const [isVisible, setIsVisible] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            // Cast to HTMLElement to access offsetHeight
-            const heroSection = document.querySelector('#hero') as HTMLElement;
-            const heroHeight = heroSection?.offsetHeight || 800;
-            
-            if (window.scrollY > heroHeight - 100) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
-        };
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navHeight = document.querySelector('.nav-container')?.clientHeight || 0;
+      const elementPosition = element.offsetTop - navHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+      setIsMobileMenuOpen(false);
+    }
+  };
 
-    return ( 
-        <div className={`nav-component ${isVisible ? 'nav-visible' : 'nav-hidden'}`}>
-            <div className="nav-component-in">
-                <div className="nav-component-in-one">
-                    <GiWoodPile className='icon-nav'/>
-                    <h1>WoodFlow</h1>
-                </div>
-                <div className="nav-component-in-two">
-                    <a href="#services">Services</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
+  return (
+    <nav className={`nav-container ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="nav-content">
+        <div className="nav-logo" onClick={() => scrollToSection('home')}>
+          <GiWoodBeam className="logo-icon" />
+          <span>TimberCraft</span>
         </div>
-     );
-}
- 
+
+        <div className="nav-links-desktop">
+          {['about', 'services', 'products', 'sustainability', 'contact'].map((item) => (
+            <button
+              key={item}
+              onClick={() => scrollToSection(item)}
+              className="nav-link"
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </button>
+          ))}
+        </div>
+
+        <button 
+          className="mobile-menu-button"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+        >
+          <GiHamburgerMenu className="menu-icon" />
+        </button>
+
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              className="mobile-menu"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+            >
+              {['home', 'services', 'products', 'sustainability', 'about', 'contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="mobile-nav-link"
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </nav>
+  );
+};
+
 export default Nav;
