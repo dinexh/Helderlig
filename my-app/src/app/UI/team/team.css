@@ -1,0 +1,84 @@
+.team-component {
+    padding: 80px 0;
+    background-color: var(--bg-light);
+}
+
+.team-component-in {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.team-component-in-heading {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.team-component-in-heading h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.team-component-in-heading p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #666;
+    line-height: 1.6;
+}
+
+.team-component-in-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.team-component-in-boxes-box {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-component-in-boxes-box:hover {
+    transform: translateY(-5px);
+}
+
+.team-component-in-boxes-box-img {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.team-component-in-boxes-box-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-component-in-boxes-box-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.team-component-in-boxes-box-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.team-component-in-boxes-box-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .team-component {
+        padding: 40px 0;
+    }
+    
+    .team-component-in-heading h2 {
+        font-size: 2rem;
+    }
+}

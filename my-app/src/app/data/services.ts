@@ -1,43 +1,39 @@
-import { 
-  GiWoodPile, 
-  GiWarAxe 
-} from 'react-icons/gi';
-import { 
-  FaWarehouse, 
-  FaShip 
-} from 'react-icons/fa';
 import { IconType } from 'react-icons';
+import { FaTree, FaWarehouse, FaShippingFast, FaHandshake } from 'react-icons/fa';
+import { GiWoodBeam } from 'react-icons/gi';
 
 interface Service {
   id: number;
   title: string;
   description: string;
   icon: IconType;
+  woodTypes?: string[];
 }
 
 export const services: Service[] = [
   {
     id: 1,
-    title: 'Timber Sourcing',
-    description: 'Premium quality timber sourced from sustainable forests worldwide, meeting international standards and certifications.',
-    icon: GiWoodPile
+    title: "Premium Timber Wood Supply",
+    description: "Specialized in sourcing and supplying high-quality timber wood varieties including Iroko, Okan, Teak, and Azobe wood. Each variety is carefully selected to meet specific industrial and construction needs.",
+    icon: FaTree,
+    // woodTypes: ["Iroko", "Okan", "Teak", "Azobe"]ab
   },
   {
     id: 2,
-    title: 'Global Logistics',
-    description: 'End-to-end shipping solutions with real-time tracking and efficient customs clearance services.',
-    icon: FaShip
+    title: "Wood Processing & Treatment",
+    description: "Professional processing and treatment of premium wood varieties ensuring optimal quality and durability for various applications.",
+    icon: GiWoodBeam
   },
   {
     id: 3,
-    title: 'Custom Processing',
-    description: 'Precision cutting and processing services tailored to your specific requirements and industry standards.',
-    icon: GiWarAxe
+    title: "Warehousing & Storage",
+    description: "State-of-the-art storage facilities ensuring proper maintenance of wood quality and characteristics before delivery.",
+    icon: FaWarehouse
   },
   {
     id: 4,
-    title: 'Warehousing',
-    description: 'Climate-controlled storage facilities ensuring your timber maintains its quality and characteristics.',
-    icon: FaWarehouse
+    title: "Logistics & Distribution",
+    description: "Efficient logistics solutions for timely delivery of timber products to your desired location.",
+    icon: FaShippingFast
   },
 ]; 

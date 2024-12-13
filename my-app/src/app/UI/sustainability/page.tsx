@@ -75,7 +75,7 @@ const Sustainability = () => {
           viewport={{ once: true }}
         >
           <p>
-            At WoodFlow, sustainability isn&apos;t just a buzzword – it&apos;s the core of our business. 
+            At Heldric Commercio PVT LTD, sustainability isn&apos;t just a buzzword – it&apos;s the core of our business. 
             We believe in responsible forestry practices that preserve our natural resources for future generations.
           </p>
         </motion.div>

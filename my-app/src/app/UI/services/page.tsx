@@ -33,6 +33,16 @@ const Services = () => {
               </div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
+              {service.woodTypes && (
+                <div className="wood-types">
+                  <h4>Wood Varieties:</h4>
+                  <ul>
+                    {service.woodTypes.map((wood, index) => (
+                      <li key={index}>{wood}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </motion.div>
           );
         })}

@@ -39,7 +39,7 @@ const Nav = () => {
         </div>
 
         <div className="nav-links-desktop">
-          {['about', 'services', 'products', 'sustainability', 'contact'].map((item) => (
+          {['about', 'services', 'products', 'sustainability', 'team',  'contact'].map((item) => (
             <button
               key={item}
               onClick={() => scrollToSection(item)}

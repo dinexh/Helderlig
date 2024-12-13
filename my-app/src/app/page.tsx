@@ -11,7 +11,7 @@ import Sustainability from './UI/sustainability/page';
 import About from './UI/about/about';
 import Testimonials from './UI/testimonials/page';
 import Contact from './UI/contact/page';
-
+import Team from './UI/team/page';
 export default function Home() {
   return (
     <div className="home-component">
@@ -32,6 +32,9 @@ export default function Home() {
       </section>
       <section id="sustainability">
         <Sustainability />
+      </section>
+      <section id="team">
+        <Team />
       </section>
       <section id="testimonials">
         <Testimonials />
