@@ -2,6 +2,7 @@
 import './team.css';
 import { team } from "@/app/data/team";
 import { motion } from "framer-motion";
+import Image from 'next/image';
 
 export default function Team() {
     return (
@@ -26,7 +27,7 @@ export default function Team() {
                             transition={{ duration: 0.6, delay: index * 0.2 }}
                         >   
                             <div className="team-component-in-boxes-box-img">
-                                <img src={member.image} alt={member.name} />
+                                <Image src={member.image} alt={member.name} width={100} height={100}    />
                             </div>
                             <div className="team-component-in-boxes-box-info">
                                 <h3>{member.name}</h3>

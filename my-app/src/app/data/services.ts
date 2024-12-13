@@ -1,5 +1,5 @@
 import { IconType } from 'react-icons';
-import { FaTree, FaWarehouse, FaShippingFast, FaHandshake } from 'react-icons/fa';
+import { FaTree, FaWarehouse, FaShippingFast } from 'react-icons/fa';
 import { GiWoodBeam } from 'react-icons/gi';
 
 interface Service {
@@ -16,7 +16,6 @@ export const services: Service[] = [
     title: "Premium Timber Wood Supply",
     description: "Specialized in sourcing and supplying high-quality timber wood varieties including Iroko, Okan, Teak, and Azobe wood. Each variety is carefully selected to meet specific industrial and construction needs.",
     icon: FaTree,
-    // woodTypes: ["Iroko", "Okan", "Teak", "Azobe"]ab
   },
   {
     id: 2,
