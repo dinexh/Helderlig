@@ -67,7 +67,7 @@ const Nav = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
             >
-              {['home', 'services', 'products', 'sustainability', 'about', 'contact'].map((item) => (
+              {['about', 'services', 'products', 'sustainability', 'team',  'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
