@@ -1,5 +1,6 @@
 export const contactInfo = {
-  email: "info@yourcompany.com",
-  phone: "+1 (555) 123-4567",
-  address: "123 Business Street, Suite 100, City, Country"
+  email: "helderligcommercio@gmail.com",
+  phone: "+91 9988669224",
+  address: "#39-4-12/4, Ground Floor, Near Sudarshan Park, Muralinagar, VISAKHAPATNAM, Pin:- 530 007Andhra Pradesh, INDIA"
+
 }; 
