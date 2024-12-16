@@ -69,7 +69,25 @@ export default function LoginPage() {
   return (
     <div className="login-component">
         <div className="login-component-in">
-            <Toaster position="top-right" />
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                style: {
+                  background: '#006400',
+                  color: '#fff',
+                },
+                success: {
+                  style: {
+                    background: '#006400',
+                  },
+                },
+                error: {
+                  style: {
+                    background: '#8b0000',
+                  },
+                },
+              }}
+            />
                 <div className="login-component-in-heading">
                     <h1>Helderlig Admin Portal</h1>
                 {error && <div className="error-message">{error}</div>}
