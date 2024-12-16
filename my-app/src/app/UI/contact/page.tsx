@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './contact.css';
 import { contactInfo } from '@/app/data/contactInfo';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { getDatabase, ref, push } from 'firebase/database';
 import { app } from '../../../config/firebase';
 import toastr from 'toastr';

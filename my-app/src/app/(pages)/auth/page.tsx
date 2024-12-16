@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 'use client';
 
 import { useState } from 'react';
@@ -10,11 +8,6 @@ import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import '../../globals.css';
 import './page.css';
-
-interface FirebaseError {
-  code: string;
-  message: string;
-}
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -34,10 +27,15 @@ export default function LoginPage() {
       toast.success('Successfully logged in!');
       router.push('/dashboard');
     } catch (error: unknown) {
-      if (error && typeof error === 'object' && 'message' in error) {
+      if (error instanceof Error) {
         console.error('Login error:', error.message);
         toast.error(error.message);
         setError(error.message);
+      } else {
+        const errorMessage = 'An unexpected error occurred';
+        console.error('Login error:', errorMessage);
+        toast.error(errorMessage);
+        setError(errorMessage);
       }
     } finally {
       setLoading(false);
@@ -55,10 +53,15 @@ export default function LoginPage() {
       await sendPasswordResetEmail(auth, email);
       toast.success('Password reset email sent! Please check your inbox.');
     } catch (error: unknown) {
-      if (error && typeof error === 'object' && 'message' in error) {
+      if (error instanceof Error) {
         console.error('Registration error:', error.message);
         toast.error(error.message);
         setError(error.message);
+      } else {
+        const errorMessage = 'An unexpected error occurred';
+        console.error('Registration error:', errorMessage);
+        toast.error(errorMessage);
+        setError(errorMessage);
       }
     }
   };
