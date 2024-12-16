@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 'use client';
 
 import { useState } from 'react';
@@ -8,6 +10,11 @@ import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import '../../globals.css';
 import './page.css';
+
+interface FirebaseError {
+  code: string;
+  message: string;
+}
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -26,9 +33,12 @@ export default function LoginPage() {
       await signInWithEmailAndPassword(auth, email, password);
       toast.success('Successfully logged in!');
       router.push('/dashboard');
-    } catch (err: any) {
-      toast.error(err.message);
-      setError(err.message);
+    } catch (error: unknown) {
+      if (error && typeof error === 'object' && 'message' in error) {
+        console.error('Login error:', error.message);
+        toast.error(error.message);
+        setError(error.message);
+      }
     } finally {
       setLoading(false);
     }
@@ -44,9 +54,12 @@ export default function LoginPage() {
     try {
       await sendPasswordResetEmail(auth, email);
       toast.success('Password reset email sent! Please check your inbox.');
-    } catch (err: any) {
-      toast.error(err.message);
-      setError(err.message);
+    } catch (error: unknown) {
+      if (error && typeof error === 'object' && 'message' in error) {
+        console.error('Registration error:', error.message);
+        toast.error(error.message);
+        setError(error.message);
+      }
     }
   };
 

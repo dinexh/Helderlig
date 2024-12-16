@@ -61,8 +61,7 @@
   gap: 1rem;
 }
 
-.info-item i {
-  font-size: 1.5rem;
+.info-icon-wrapper {
   width: 40px;
   height: 40px;
   display: flex;
@@ -70,7 +69,17 @@
   justify-content: center;
   background: rgba(210, 180, 140, 0.15);
   border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.info-icon {
+  font-size: 1.5rem;
   color: #D2B48C;
+}
+
+.info-item:hover .info-icon-wrapper {
+  background: rgba(210, 180, 140, 0.25);
+  transform: scale(1.05);
 }
 
 .contact-form {
@@ -80,13 +89,30 @@
 }
 
 .form-group {
+  position: relative;
   margin-bottom: 1.5rem;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #B8977E;
+  font-size: 18px;
+  z-index: 1;
+}
+
+/* Adjust the textarea icon position */
+textarea ~ .input-icon {
+  top: 20px;
+  transform: none;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 40px; /* Increased left padding for icon */
   border: 2px solid #B8977E;
   border-radius: 8px;
   font-size: 1rem;
@@ -236,4 +262,23 @@
 .form-group textarea:hover {
   border-color: #A0522D;
   background-color: #FFF8DC;
+}
+
+/* Add these styles to your existing CSS */
+.toast-success, .toast-error {
+  background-color: #8B4513 !important;
+}
+
+.custom-toast {
+  opacity: 1 !important;
+}
+
+#toast-container > div {
+  opacity: 1 !important;
+  border-radius: 4px !important;
+  padding: 15px 15px 15px 50px !important;
+}
+
+#toast-container > div:hover {
+  box-shadow: 0 0 12px rgba(139, 69, 19, 0.3) !important; /* Brown shadow */
 } 

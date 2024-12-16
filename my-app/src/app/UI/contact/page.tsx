@@ -1,8 +1,14 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './contact.css';
 import { contactInfo } from '@/app/data/contactInfo';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getDatabase, ref, push } from 'firebase/database';
+import { app } from '../../../config/firebase';
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css';
+import { FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { BiMessageDetail } from 'react-icons/bi';
 
 interface FormData {
   name: string;
@@ -19,7 +25,16 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  useEffect(() => {
+    toastr.options = {
+      positionClass: 'toast-top-right',
+      timeOut: 3000,
+      progressBar: true,
+      closeButton: true,
+      preventDuplicates: true
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -34,16 +49,22 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 800));
+      const db = getDatabase(app);
+      const contactsRef = ref(db, 'contacts');
       
-      setSubmitSuccess(true);
+      const contactData = {
+        ...formData,
+        timestamp: new Date().toISOString()
+      };
+      
+      await push(contactsRef, contactData);
+      
       setFormData({ name: '', email: '', phone: '', message: '' });
       
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitSuccess(false), 5000);
+      toastr.success('Message sent successfully!', 'Thank you');
     } catch (error) {
       console.error('Error submitting form:', error);
+      toastr.error('Failed to send message. Please try again.', 'Error');
     } finally {
       setIsSubmitting(false);
     }
@@ -68,34 +89,28 @@ const Contact = () => {
           <h3>Get in Touch</h3>
           <div className="info-items">
             <div className="info-item">
-              <i className="fas fa-envelope"></i>
+              <div className="info-icon-wrapper">
+                <FaEnvelope className="info-icon" />
+              </div>
               <p><strong>Email:</strong> {contactInfo.email}</p>
             </div>
             <div className="info-item">
-              <i className="fas fa-phone"></i>
+              <div className="info-icon-wrapper">
+                <FaPhone className="info-icon" />
+              </div>
               <p><strong>Phone:</strong> {contactInfo.phone}</p>
             </div>
             <div className="info-item">
-              <i className="fas fa-map-marker-alt"></i>
+              <div className="info-icon-wrapper">
+                <FaMapMarkerAlt className="info-icon" />
+              </div>
               <p><strong>Address:</strong> {contactInfo.address}</p>
             </div>
           </div>
         </div>
         <form className="contact-form" onSubmit={handleSubmit}>
-          <AnimatePresence>
-            {submitSuccess && (
-              <motion.div
-                className="success-message"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-              >
-                Thank you for your message! We&apos;ll get back to you soon.
-              </motion.div>
-            )}
-          </AnimatePresence>
-          
           <div className="form-group">
+            <FaUser className="input-icon" />
             <input
               type="text"
               name="name"
@@ -106,6 +121,7 @@ const Contact = () => {
             />
           </div>
           <div className="form-group">
+            <FaEnvelope className="input-icon" />
             <input
               type="email"
               name="email"
@@ -116,6 +132,7 @@ const Contact = () => {
             />
           </div>
           <div className="form-group">
+            <FaPhone className="input-icon" />
             <input
               type="tel"
               name="phone"
@@ -125,6 +142,7 @@ const Contact = () => {
             />
           </div>
           <div className="form-group">
+            <BiMessageDetail className="input-icon" />
             <textarea
               name="message"
               value={formData.message}
