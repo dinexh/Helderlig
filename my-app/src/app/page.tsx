@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import './globals.css';
 // components
@@ -9,7 +10,6 @@ import Services from './UI/services/page';
 import Products from './UI/products/page';
 import Sustainability from './UI/sustainability/page';
 import About from './UI/about/about';
-import Testimonials from './UI/testimonials/page';
 import Contact from './UI/contact/page';
 import Team from './UI/team/page';
 export default function Home() {
@@ -35,9 +35,6 @@ export default function Home() {
       </section>
       <section id="team">
         <Team />
-      </section>
-      <section id="testimonials">
-        <Testimonials />
       </section>
       <section id="contact">
         <Contact />

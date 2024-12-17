@@ -20,13 +20,13 @@ const Hero = () => {
         >
           Premium Timber Solutions
         </motion.h1>
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           Sustainable Wood Products for Global Markets
-        </motion.p>
+        </motion.p> */}
         <motion.div
           className="hero-features"
           initial={{ opacity: 0, y: 20 }}

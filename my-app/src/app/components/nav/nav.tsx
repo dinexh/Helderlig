@@ -35,7 +35,7 @@ const Nav = () => {
       <div className="nav-content">
         <div className="nav-logo" onClick={() => scrollToSection('home')}>
           <GiWoodBeam className="logo-icon" />
-          <span>Helderic Commmerico PVT LTD</span>
+          <span>Helderlig Commmerico PVT LTD</span>
         </div>
 
         <div className="nav-links-desktop">

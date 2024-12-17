@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { products } from '@/app/data/products';
 import { StaticImageData } from 'next/image';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Define the Product type
 interface Product {
@@ -21,6 +22,8 @@ interface Product {
 
 const Products: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  // Show only first 4 products
+  const displayedProducts = products.slice(0, 4);
 
   // Handle "Escape" key to close the modal
   useEffect(() => {
@@ -45,34 +48,30 @@ const Products: React.FC = () => {
       
       {/* Products Grid */}
       <div className="products-grid">
-        {products && products.length > 0 ? (
-          products.map((product: Product, index: number) => (
-            <motion.div
-              key={product.id}
-              className="product-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              onClick={() => setSelectedProduct(product)}
-            >
-              <div className="product-image-container">
-                <Image 
-                  src={product.image} 
-                  alt={product.name}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                />
-                <div className="product-overlay">
-                  <span>View Details</span>
-                </div>
+        {displayedProducts.map((product: Product, index: number) => (
+          <motion.div
+            key={product.id}
+            className="product-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            onClick={() => setSelectedProduct(product)}
+          >
+            <div className="product-image-container">
+              <Image 
+                src={product.image} 
+                alt={product.name}
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+              <div className="product-overlay">
+                <span>View Details</span>
               </div>
-              <h3>{product.name}</h3>
-              <p>{product.shortDesc}</p>
-            </motion.div>
-          ))
-        ) : (
-          <p>No products available</p>
-        )}
+            </div>
+            <h3>{product.name}</h3>
+            <p>{product.shortDesc}</p>
+          </motion.div>
+        ))}
       </div>
 
       {/* Modal for Selected Product */}
@@ -123,6 +122,7 @@ const Products: React.FC = () => {
                           className="property-fill"
                           style={{ width: `${selectedProduct.hardness}%` }}
                         ></div>
+                        <span className="property-percentage">{selectedProduct.hardness}%</span>
                       </div>
                     </div>
                     <div className="property">
@@ -132,6 +132,7 @@ const Products: React.FC = () => {
                           className="property-fill"
                           style={{ width: `${selectedProduct.durability}%` }}
                         ></div>
+                        <span className="property-percentage">{selectedProduct.durability}%</span>
                       </div>
                     </div>
                   </div>
@@ -154,6 +155,17 @@ const Products: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <motion.p 
+        className="view-more-text"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Link href="/projects" className="view-more-link">
+          View all products →
+        </Link>
+      </motion.p>
     </section>
   );
 };
