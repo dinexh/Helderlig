@@ -3,9 +3,7 @@ import React from 'react';
 import './sustainability.css';
 import { motion } from 'framer-motion';
 import { GiTreeGrowth, GiRecycle, GiEarthAmerica } from 'react-icons/gi';
-import { FaSeedling, FaTree, FaCertificate } from 'react-icons/fa';
-import { MdForest, MdEco } from 'react-icons/md';
-import { FaLeaf } from 'react-icons/fa';
+import { FaSeedling} from 'react-icons/fa';
 
 const Sustainability = () => {
   const initiatives = [
