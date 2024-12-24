@@ -26,7 +26,7 @@ export default function TermsPage() {
 
         <div className="policy-section">
           <h2>2. Use of Services</h2>
-          <p>Our services are provided "as is" and "as available." You agree to use our services only for lawful purposes and in accordance with these Terms and Conditions. You are responsible for maintaining the confidentiality of your account information and for all activities under your account.</p>
+          <p>Our services are provided &quot;as is&quot; and &quot;as available.&quot; You agree to use our services only for lawful purposes and in accordance with these Terms and Conditions. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.</p>
         </div>
 
         <div className="policy-section">
@@ -36,7 +36,7 @@ export default function TermsPage() {
 
         <div className="policy-section">
           <h2>4. User Responsibilities</h2>
-          <p>You agree not to misuse our services or help anyone else do so. This includes attempting to access our services through unauthorized means, violating any applicable laws, or infringing upon others' rights.</p>
+          <p>You agree not to misuse our services or help anyone else do so. This includes attempting to access our services through unauthorized means, violating any applicable laws, or infringing upon others&apos; rights.</p>
         </div>
 
         <div className="policy-section">
