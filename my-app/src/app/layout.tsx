@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import 'toastr/build/toastr.min.css';
@@ -7,6 +7,10 @@ const poppins = Poppins({
   weight: ["400", "700"],
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+};
 
 export const metadata: Metadata = {
   title: "Helderlig Commmerico PVT LTD",
@@ -19,7 +23,13 @@ export const metadata: Metadata = {
     type: "website",
   },
   robots: "index, follow",
-  themeColor: "#ffffff",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icon-large.png', type: 'image/png', sizes: '192x192' },
+    ],
+  },
 };
 
 export default function RootLayout({

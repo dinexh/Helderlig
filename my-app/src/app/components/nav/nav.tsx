@@ -38,6 +38,7 @@ const Nav = () => {
         <div className="nav-logo" onClick={() => scrollToSection('home')}>
           <div className="logo-wrapper">
             <Image 
+            
               src={Logo} 
               alt="Logo" 
               className="logo-icon" 
