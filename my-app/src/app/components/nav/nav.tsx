@@ -1,8 +1,10 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import './nav.css';
-import { GiWoodBeam, GiHamburgerMenu } from "react-icons/gi";
+import Logo from "../../Assets/logo.png"
+import { GiHamburgerMenu } from "react-icons/gi";
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,8 +36,17 @@ const Nav = () => {
     <nav className={`nav-container ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-content">
         <div className="nav-logo" onClick={() => scrollToSection('home')}>
-          <GiWoodBeam className="logo-icon" />
-          <span>Helderlig Commmerico PVT LTD</span>
+          <div className="logo-wrapper">
+            <Image 
+              src={Logo} 
+              alt="Logo" 
+              className="logo-icon" 
+              width={50} 
+              height={50} 
+              priority
+            />
+          </div>
+          <span className="company-name">Helderlig Commmerico PVT LTD</span>
         </div>
 
         <div className="nav-links-desktop">
