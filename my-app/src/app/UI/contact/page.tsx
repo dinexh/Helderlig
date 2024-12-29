@@ -29,10 +29,14 @@ const Contact = () => {
   useEffect(() => {
     toastr.options = {
       positionClass: 'toast-top-right',
-      timeOut: 3000,
+      timeOut: 4000,
       progressBar: true,
       closeButton: true,
-      preventDuplicates: true
+      preventDuplicates: true,
+      newestOnTop: true,
+      showDuration: 300,
+      hideDuration: 1000,
+      extendedTimeOut: 1000
     };
   }, []);
 
@@ -58,13 +62,31 @@ const Contact = () => {
       };
       
       await push(contactsRef, contactData);
+      toastr.info('Saving your message...', 'Processing');
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send email');
+      }
       
       setFormData({ name: '', email: '', phone: '', message: '' });
-      
-      toastr.success('Message sent successfully!', 'Thank you');
-    } catch (error) {
+      toastr.success('Your message has been sent and we will get back to you soon!', 'Success');
+    } catch (error: any) {
       console.error('Error submitting form:', error);
-      toastr.error('Failed to send message. Please try again.', 'Error');
+      if (error.message.includes('email')) {
+        toastr.error('Could not send email notification. Please try again later.', 'Email Error');
+      } else {
+        toastr.error('Something went wrong. Please try again.', 'Error');
+      }
     } finally {
       setIsSubmitting(false);
     }
