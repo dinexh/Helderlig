@@ -41,15 +41,16 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-component-bottom">
-                <p className="copyright">
+                <div className="copyright">
+                <p>
                     &copy; {currentYear} Helderic Commmerico PVT LTD. All rights reserved.
                 </p>
+                <p>Designed and Developed by <Link href="https://www.dineshkorukonda.in/" target="_blank">Dinesh Korukonda</Link></p>
+                </div>
                 <div className="footer-component-bottom-nav">
                     <Link href="/privacy" className="legal-link">Privacy Policy</Link>
                     <span className="separator" aria-hidden="true">•</span>
                     <Link href="/terms" className="legal-link">Terms of Service</Link>
-                    <span className="separator" aria-hidden="true">•</span>
-                    <Link href="/auth" className="legal-link">Login</Link>
                 </div>
             </div>
         </footer>
