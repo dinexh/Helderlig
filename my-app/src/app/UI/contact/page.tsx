@@ -80,9 +80,9 @@ const Contact = () => {
       
       setFormData({ name: '', email: '', phone: '', message: '' });
       toastr.success('Your message has been sent and we will get back to you soon!', 'Success');
-    } catch (error: any) {
+    } catch (error: Error | unknown) {
       console.error('Error submitting form:', error);
-      if (error.message.includes('email')) {
+      if (error instanceof Error && error.message.includes('email')) {
         toastr.error('Could not send email notification. Please try again later.', 'Email Error');
       } else {
         toastr.error('Something went wrong. Please try again.', 'Error');
