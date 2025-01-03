@@ -14,13 +14,13 @@ export const services: Service[] = [
   {
     id: 1,
     title: "Premium Timber Wood Supply",
-    description: "Specialized in sourcing and supplying high-quality timber wood varieties including Iroko, Okan, Teak, and Azobe wood. Each variety is carefully selected to meet specific industrial and construction needs.",
+    description: "Specialized in sourcing and supplying high-quality timber wood varieties including Iroko, Okan, Teak, and Azobe wood.",
     icon: FaTree,
   },
   {
     id: 2,
     title: "Wood Processing & Treatment",
-    description: "Professional processing and treatment of premium wood varieties ensuring optimal quality and durability for various applications.",
+    description: "Professional processing and treatment of premium wood varieties ensuring optimal quality  for various applications.",
     icon: GiWoodBeam
   },
   {

@@ -49,10 +49,10 @@ export default function TermsPage() {
           <p>We reserve the right to modify these Terms and Conditions at any time. We will notify users of any material changes via email or through our website. Your continued use of our services after such modifications constitutes your acceptance of the updated terms.</p>
         </div>
 
-        <div className="policy-section">
+        <div className="policy-section-page">
           <h2>7. Contact Information</h2>
           <p>If you have any questions about these Terms and Conditions, please contact us at:</p>
-          <div className="contact-info">
+          <div className="contact-info-page">
             <p>Email: support@helderlig.com</p>
           </div>
         </div>

@@ -66,7 +66,7 @@ export default function PrivacyPolicy() {
           <p>For privacy concerns, contact us at:</p>
           <div className="contact-info">
             <p>Email: privacy@helderlig.com</p>
-            <p>Phone: +1 (555) 123-4567</p>
+            <p>Phone: +91 9988669224</p>
           </div>
         </div>
       </div>
